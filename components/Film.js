@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 class Film extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { loaded: props.loaded, selectedMovie: props.selectedMovie };
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {loaded: props.loaded, selectedMovie: props.selectedMovie};
-    }
-
-    render() {
-        if (this.state.loaded) {
-            return (
+  render() {
+    if (this.state.loaded) {
+      return (
                 <div className="Film">
                     <p align="right"><Link href="/"><a>Search</a></Link></p>
                     <p><img src={this.state.selectedMovie.poster_path} /></p>
@@ -20,16 +20,19 @@ class Film extends React.Component {
                     <p></p>
                     <p>{this.state.selectedMovie.overview}</p>
                 </div>
-            );
-        } else {
-            return (
+      );
+    }
+    return (
                 <div className="Film">
                     Loading ...
                 </div>
-            );
-        }
-        
-    }
+    );
+  }
 }
+
+Film.propTypes = {
+    loaded: PropTypes.bool,
+    selectedMovie: PropTypes.object
+};
 
 export default Film;

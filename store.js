@@ -6,7 +6,7 @@ import { saveState } from './localStorage';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 store.subscribe(() => {
-    saveState(store.getState());
-})
+  saveState(store.getState());
+});
 
 export default store;

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Button from 'material-ui-next/Button';
 
 const SearchButton = (

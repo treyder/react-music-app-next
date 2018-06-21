@@ -1,16 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from '../store';
-import { loadState, saveState } from '../localStorage';
-import Layout from '../components/MyLayout.js';
+import Layout from '../components/MyLayout';
 import SearchMain from '../components/SearchMain';
 import SearchResult from '../components/SearchResult';
 
-export default () => (
+const Index = () => (
     <Provider store={store}>
         <Layout>
             <SearchMain />
             <SearchResult/>
         </Layout>
     </Provider>
-)
+);
+
+export default Index;
